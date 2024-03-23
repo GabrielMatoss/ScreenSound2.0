@@ -11,6 +11,14 @@ Dictionary<string, Banda> bandasRegistradas = new();
 bandasRegistradas.Add(ira.Nome, ira);
 bandasRegistradas.Add(manowar.Nome, manowar);
 
+Dictionary<int, Menu> opcoes = new();
+opcoes.Add(1, new MenuRegistrarBanda());
+opcoes.Add(2, new MenuRegistrarAlbum());
+opcoes.Add(3, new MenuExibirBandasRegistradas());
+opcoes.Add(4, new MenuAvaliarBanda());
+opcoes.Add(5, new MenuExibirDetalhes());
+opcoes.Add(0, new MenuSair());
+
 void ExibirLogo()
 {
     Console.WriteLine(@"
@@ -39,39 +47,15 @@ void ExibirOpcoesDoMenu()
     string opcaoEscolhida = Console.ReadLine()!;
     int opcaoEscolhidaNumerica = int.Parse(opcaoEscolhida);
 
-    switch (opcaoEscolhidaNumerica)
+    if(opcoes.ContainsKey(opcaoEscolhidaNumerica))
     {
-        case 1:
-            MenuRegistrarBanda menu1 = new();
-            menu1.Executar(bandasRegistradas);
-            ExibirOpcoesDoMenu();
-            break;
-        case 2:
-            MenuRegistrarAlbum menu2 = new();
-            menu2.Executar(bandasRegistradas);
-            ExibirOpcoesDoMenu();
-            break;
-        case 3:
-            MenuExibirBandasRegistradas menu3 = new();
-            menu3.Executar(bandasRegistradas);
-            ExibirOpcoesDoMenu();
-            break;
-        case 4:
-            MenuAvaliarBanda menu4 = new();
-            menu4.Executar(bandasRegistradas);
-            ExibirOpcoesDoMenu();
-            break;
-        case 5:
-            MenuExibirDetalhes menu5 = new();
-            menu5.Executar(bandasRegistradas);
-            ExibirOpcoesDoMenu();
-            break;
-        case 0:
-            Console.WriteLine("Tchau tchau :)");
-            break;
-        default:
-            Console.WriteLine("Opção inválida");
-            break;
+        Menu menuEscolhido = opcoes[opcaoEscolhidaNumerica];
+        menuEscolhido.Executar(bandasRegistradas);
+        if(opcaoEscolhidaNumerica > 0) ExibirOpcoesDoMenu();
+    }
+    else
+    {
+        Console.WriteLine("Opção inválida");
     }
 }
 
