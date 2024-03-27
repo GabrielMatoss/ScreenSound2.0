@@ -17,7 +17,11 @@ opcoes.Add(2, new MenuRegistrarAlbum());
 opcoes.Add(3, new MenuExibirBandasRegistradas());
 opcoes.Add(4, new MenuAvaliarBanda());
 opcoes.Add(5, new MenuExibirDetalhes());
+<<<<<<< HEAD
 opcoes.Add(-1, new MenuSair());
+=======
+opcoes.Add(0, new MenuSair());
+>>>>>>> 8806d1432b68ad5ac24a6b804091a5ed49eaabcb
 
 void ExibirLogo()
 {
