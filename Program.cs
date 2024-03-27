@@ -18,7 +18,7 @@ opcoes.Add(3, new MenuExibirBandasRegistradas());
 opcoes.Add(4, new MenuAvaliarBanda());
 opcoes.Add(5, new MenuExibirDetalhes());
 opcoes.Add(-1, new MenuSair());
-opcoes.Add(0, new MenuSair());
+
 
 void ExibirLogo()
 {
